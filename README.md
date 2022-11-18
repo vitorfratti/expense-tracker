@@ -1,5 +1,7 @@
 # Projeto: Expense Tracker💲
 
+<h3><a href="https://expensetracker-vitorfratti.netlify.app/">Clique aqui para visitar o projeto</a></h3>
+
 ## Descrição do Projeto:
 
 <p>Sistema Web de controle financeiro. Apenas o Front-end aplicado até o momento.</p>
@@ -7,8 +9,6 @@
 ## Exemplo de Implementação:
 
 ![Captura de Tela (20)](https://user-images.githubusercontent.com/91079601/193359775-b19126c4-62d4-4630-b92a-7d84b72af35c.png)
-
-<h3><a href="https://vitorfratti-expensetracker.netlify.app/">Clique aqui para visitar o projeto</a></h3>
 
 <br>
 
