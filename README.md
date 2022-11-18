@@ -4,7 +4,7 @@
 
 ## Descrição do Projeto:
 
-<p>Sistema Web de controle financeiro. Apenas o Front-end aplicado até o momento.</p>
+<p>Controle financeiro. Apenas o Front-end aplicado até o momento.</p>
 
 ## Exemplo de Implementação:
 
