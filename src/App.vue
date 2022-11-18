@@ -29,7 +29,7 @@
     </div>
   </div>
 
-  <header>
+  <header class="brightness">
     <h1 class="header-title">Expense Tracker</h1>
     <div class="header-right">
       <button v-if="this.nightModeActive === true" @click="nightMode" class="toggle-nightmode-btn right">
@@ -42,7 +42,7 @@
     </div>
   </header>
 
-  <main>
+  <main class="brightness">
     <div class="main-container">
       <div class="boxes-container">
           <div class="box-container" id="balance">
@@ -134,11 +134,13 @@ export default {
       },
       openModal() {
         document.getElementById('modal-container').classList.remove('none')
+        document.querySelectorAll('.brightness').forEach(divsBrightness => { divsBrightness.classList.add('on') })
       },
       closeModal() {
         document.getElementById('modal-container').classList.add('none')
         document.getElementById('input-amount').classList.remove('border-red')
         document.getElementById('input-amount').classList.remove('border-green')
+        document.querySelectorAll('.brightness').forEach(divsBrightness => { divsBrightness.classList.remove('on') })
       },
       inputAnimation(){
         if(this.amount >= 0) {
@@ -321,11 +323,15 @@ body {
 
 header {
   background: var(--primary-background);
+  height: 6rem;
   padding: 1.5rem 2.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 0 3px var(--border-and-shadows);
+  position: absolute;
+  width: 100%;
+  z-index: 10;
 
   h1 {
     font-size: 2rem;
@@ -379,13 +385,15 @@ header {
 
 main {
   background: var(--secondary-background);
-  padding: 2rem 2rem 0 2rem;
-  max-height: 100vh;
+  padding: 7rem 2rem 6rem 2rem;
+  min-height: 100vh;
+  max-height: auto;
 
   .boxes-container {
     display: flex;
     justify-content: flex-start;
     overflow-x: auto;
+    padding: 1rem 0;
 
     .box-container {
       background: var(--primary-background);
@@ -518,7 +526,7 @@ h3.empty-text {
 
 .transactions-area {
   margin: 1rem 0;
-  height: 22.5rem;
+  max-height: 22.5rem;
   overflow-y: scroll;
 }
 
@@ -535,6 +543,7 @@ h3.empty-text {
   position: absolute;
   top: 14rem;
   left: calc(50% - 18rem);
+  z-index: 10;
 
   .header-modal-container {
     display: flex;
@@ -647,6 +656,10 @@ button:hover {
   border: none;
 }
 
+.on {
+  filter: brightness(0.5) !important;
+}
+
 .none {
   display: none !important;
 }
@@ -692,12 +705,16 @@ button:hover {
 
   .box-container {
     width: 100% !important;
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 1rem !important;
   }
 
   #modal-container {
-    width: 20rem;
+    width: 20rem !important;
     left: calc(50% - 10rem);
+
+    select {
+      margin-top: 0.7rem !important;
+    }
   }
 
   .category-transaction-container {
@@ -708,9 +725,19 @@ button:hover {
     display: none;
   }
 
+  h3.empty-text {
+    padding-bottom: 4rem!important;
+  }
+
 }
 
 @media screen and (max-width: 550px) {
+
+  header {
+    h1 {
+      font-size: 1.5rem !important;
+    }
+  }
 
   .name-infos-container {
     display: none !important;
@@ -722,6 +749,33 @@ button:hover {
 
   .date-transaction-container {
     display: none !important;
+  }
+
+}
+
+@media screen and (max-width: 440px) {
+
+  .header-right {
+    button {
+      margin: 0 0.3rem !important
+    }
+  }
+
+}
+
+@media screen and (max-width: 345px) {
+
+  .header-right {
+
+    button {
+      width: 4rem !important;
+      margin: 0.1rem 0.3rem !important
+    }
+  }
+
+  #modal-container {
+    width: 15rem !important;
+    left: calc(50% - 7.5rem);
   }
 
 }
